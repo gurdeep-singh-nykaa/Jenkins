@@ -1,0 +1,6 @@
+#### Groovy for listing aws Rds instances ####
+
+def command = ['/bin/sh', '-c', 'aws rds describe-db-instances --query "DBInstances[].Endpoint[].Address" |jq "."[]']
+  def proc = command.execute()
+  return proc.text.readLines()
+### 
